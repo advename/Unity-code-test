@@ -2,17 +2,11 @@ version: "3.9"
 
 services:
   unity-frontend-app:
-    image: node:16.14-buster
+    build: .
     container_name: unity-frontend-app
     hostname: unity-frontend-app
-    working_dir: /app
-    entrypoint: sh ./entrypoint.sh
-    user: 1000:1000
     ports:
       - "3000:3000"
     volumes:
       - ".:/app"
-
-
-
-
+      - "/app/node_modules"
